@@ -1,35 +1,38 @@
-All operation can be done from api gateway i.e. no need to user 7001 fro depratment and 7002 for user
-user 7000 for both
+1.All operation can be done from api-gateway i.e. no need to hit user-service on 7002 or depratment-service on 7001 
 
-also contail hystrix for fall back mechanism
+2.Hystrix for fallback mechanism - not working
 
-#lb - Load Balanced ** - wildcard
+3.lb - Load Balanced 
 
-spring.cloud.gateway.discovery.locator.enabled=true
-spring.cloud.gateway.discovery.locator.lower-case-service-id=true
+4.** - wildcard
 
-
-http://localhost:7000/actuator/hystrix.stream      - api-gateway
-http://localhost:7005/hystrix    - hystrix-dashboard
+5.spring.cloud.gateway.discovery.locator.enabled=true
+  spring.cloud.gateway.discovery.locator.lower-case-service-id=true
 
 
-start service-regitry-> cloud-config-> api-gateway-> department-service->user-service->hystrix-dashboard
+6.http://localhost:7000/actuator/hystrix.stream      - api-gateway
+7.http://localhost:7005/hystrix                      - hystrix-dashboard
 
-https://github.com/Taufik-Hub/my-demo-microservice-cloud-config
 
-H2 database is used
+8.start service-regitry -> cloud-config -> api-gateway -> department-service -> user-service -> hystrix-dashboard
 
-Spring <version>2.3.9.RELEASE</version>
-<java.version>1.8</java.version>
-<spring-cloud-services.version>2.3.0.RELEASE</spring-cloud-services.version>
-<spring-cloud.version>Hoxton.SR10</spring-cloud.version>
+9.Central config file : https://github.com/Taufik-Hub/my-demo-microservice-cloud-config
 
-start zipkin server
+10.H2 database is used
 
-central-config
-service-registry
-api-gateway
-distributed-tracing
-fault-taularance
-load-balance
-microservice-communication
+11.Versions: 
+	Spring <version>2.3.9.RELEASE</version>
+	<java.version>1.8</java.version>
+	<spring-cloud-services.version>2.3.0.RELEASE</spring-cloud-services.version>
+	<spring-cloud.version>Hoxton.SR10</spring-cloud.version>
+
+12.start zipkin-server on local
+
+13.covered point
+	centralize-config
+	service-registry
+	api-gateway
+	distributed-tracing
+	fault-taularance
+	load-balance
+	microservice-communication
